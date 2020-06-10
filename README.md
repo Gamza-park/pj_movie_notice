@@ -6,5 +6,5 @@
  
 
 ## Contents is...
- - This ripository is use CGV(Movie Theaters) website crawling.
- - If the movie is released tomorrow, a notification message is automatically sent by telegram.
+ - This ripository is website crawling.
+ - If there is a movie opening tomorrow, I'll send you a message.
