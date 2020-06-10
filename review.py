@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib.request
-import re, os, time
+import re, os
+
 def claen_str(string):
     string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
     string = re.sub(r"\'s", " \'s", string)
@@ -18,19 +19,13 @@ def claen_str(string):
 url = "https://www.imdb.com/title/tt4154796/reviews?ref_=tt_ov_rt"
 htmlData = urllib.request.urlopen(url)
 bs = BeautifulSoup(htmlData, 'lxml')
-# print(BeautifulSoup.prettify(bs))
-title_list = bs.findAll('a','title')
-# for title in title_list:
-#     print(title.getText())
-review_list = bs.findAll('div','text show-more__control')
-# for review in review_list:
-#     print(review.getText())
-score_list = bs.findAll('span', 'rating-other-user-rating')
-# for score in score_list:
-#     print(score.span.getText())
-print(len(title_list))
 
-timestamp = str(int(time.time()))
+title_list = bs.findAll('a','title')
+
+review_list = bs.findAll('div','text show-more__control')
+
+score_list = bs.findAll('span', 'rating-other-user-rating')
+
 out_dir = os.path.abspath(os.path.join(os.path.curdir, "data"))
 
 if not os.path.exists(out_dir):
